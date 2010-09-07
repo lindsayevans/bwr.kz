@@ -15,6 +15,9 @@ end
 
 get '/i/:size' do
   begin
+
+    response.headers['Cache-Control'] = 'public, max-age=300'
+
     wh, format = params[:size].downcase.split('.')
     format = FORMATS[format] || 'png'
 
