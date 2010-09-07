@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'haml'
 require 'RMagick'
 require 'rvg/rvg'
 
@@ -9,7 +10,15 @@ FORMATS = {
   "jpg" => "jpeg"
 }
 
-#TODO: some kind of templating
+
+set :haml, {:format => :html5, :attr_wrapper => '"' }
+
+get '/' do
+  haml :index
+end
+
+
+## Fakeimage
 
 get '/i' do
   # TODO: pretty index, JS URL/img builder
@@ -19,6 +28,7 @@ end
 get '/i/:size' do
   begin
 
+    # Cache that badboy
     response.headers['Cache-Control'] = 'public, max-age=300'
 
     wh, format = params[:size].downcase.split('.')
@@ -37,7 +47,7 @@ get '/i/:size' do
       canvas.background_fill = color
     end
 
-    # TODO: add border
+    # TODO: add borders if specified
 
     img = rvg.draw
 
