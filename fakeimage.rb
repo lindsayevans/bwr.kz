@@ -13,6 +13,7 @@ FORMATS = {
 
 set :haml, {:format => :html5, :attr_wrapper => '"' }
 
+## Index
 get '/' do
   haml :index
 end
@@ -20,7 +21,7 @@ end
 
 ## Fakeimage
 
-get '/i' do
+get '/i/?' do
   # TODO: pretty index, JS URL/img builder
   "<p>Welcome to bwr.kz fakeimage.</p><p>Please see the README (specifically the 'Use' section) at <a href='http://github.com/xxx/fakeimage'>http://github.com/xxx/fakeimage</a> for usage info so I don't have a chance to let one of the copies get out of date.</p><p>Example: <img src='#{request.env['REQUEST_PATH']}/243x350.gif?color=DeepPink&amp;textcolor=!00FF00' /></p><p>Code: <code>&lt;img src='http://#{request.env['HTTP_HOST']}#{request.env['REQUEST_PATH']}/243x350.gif?color=DeepPink&amp;amp;textcolor=!00FF00' /&gt;</code>"
 end
