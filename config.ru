@@ -1,2 +1,2 @@
-require File.expand_path('./fakeimage', File.dirname(__FILE__))
+require File.expand_path('./bwrkz', File.dirname(__FILE__))
 run Sinatra::Application

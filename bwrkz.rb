@@ -73,6 +73,7 @@ end
 private
 
 def color_convert(original)
+  original.tr('!', '#')
   if original
     if original.index('!') == 0
       original.tr('!', '#')
