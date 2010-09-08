@@ -24,7 +24,7 @@ end
 
 get '/i/?' do
   # TODO: pretty index, JS URL/img builder
-  "<h1>bwr.kz</h1><h2>fakeimage</h2><p>Please see the README (specifically the 'Use' section) at <a href='http://github.com/xxx/fakeimage'>http://github.com/xxx/fakeimage</a> for usage info so I don't have a chance to let one of the copies get out of date.</p><p>Example: <img src='/i/243x350.gif?color=DeepPink&amp;textcolor=!00FF00' /></p><p>Code: <code>&lt;img src='http://#{request.host_with_port}/i/243x350.gif?color=DeepPink&amp;amp;textcolor=!00FF00' /&gt;</code>"
+  haml :fakeimage
 end
 
 get '/i/:size' do

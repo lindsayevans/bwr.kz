@@ -1,0 +1,38 @@
+%link{ :rel => 'stylesheet', :href => '/css/colorpicker.css' }
+%header
+  %h1
+    %a{ :href => '/' } bwr.kz
+  %h2 fakeimage
+%p
+  Please see the README (specifically the 'Use' section) at
+  %a{ :href => 'http://github.com/xxx/fakeimage' }
+    http://github.com/xxx/fakeimage
+  for usage info.
+
+%form{ :action => '#' }
+  %div
+    %label{ :for => 'width' } Width
+    %input{ :type => 'text', :id => 'width', :value => '120' }
+  %div
+    %label{ :for => 'height' } Height
+    %input{ :type => 'text', :id => 'height', :value => '240' }
+  %div
+    %label{ :for => 'background-colour' } Background colour
+    %input{ :type => 'text', :id => 'background-colour', :value => '#e3e3e3' }
+  %div
+    %label{ :for => 'foreground-colour' } Foreground colour
+    %input{ :type => 'text', :id => 'foreground-colour', :value => '#666666' }
+
+%p{ :id => 'preview' }
+  Preview:
+  %br
+  %img{ :src => '/i/120x240.png?color=!e3e3e3&amp;textcolor=!666666' }
+%p{ :id => 'code' }
+  Code: 
+  %code &lt;img src="http://#{request.host_with_port}/i/120x240.png?color=!e3e3e3&amp;amp;textcolor=!666666"&gt;
+
+%script{ :src => 'http://jscdn.net/jquery.js' }
+%script{ :src => '/js/colorpicker.js' }
+%script{ :src => '/js/fakeimage-builder.js' }
+%script
+  var fakeimage_src_template = 'http://#{request.host_with_port}/i/{width}x{height}.{format}?color={background-colour}&amp;amp;textcolor={foreground-colour}', host = '#{request.host_with_port}';
