@@ -31,7 +31,7 @@ get '/i/:size' do
   begin
 
     # Cache that badboy
-    response.headers['Cache-Control'] = 'public, max-age=300'
+    response.headers['Cache-Control'] = 'public, max-age=3600'
 
     wh, format = params[:size].downcase.split('.')
     format = FORMATS[format] || 'png'
