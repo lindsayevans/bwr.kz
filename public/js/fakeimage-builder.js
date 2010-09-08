@@ -29,7 +29,7 @@ $(function(){
   // Can't seem to access the input element from inside onChange, so shit is getting duplicated for now
   $('form input#background-colour').ColorPicker({livePreview: true, 
       onSubmit: function(hsb, hex, rgb, el) {
-	$(el).val('#' + hex);
+	$(el).val('#' + hex).trigger('change');
 	$(el).ColorPickerHide();
       },
       onChange: function(hsb, hex, rgb) {
@@ -42,7 +42,7 @@ $(function(){
 
   $('form input#foreground-colour').ColorPicker({livePreview: true, 
       onSubmit: function(hsb, hex, rgb, el) {
-	$(el).val('#' + hex);
+	$(el).val('#' + hex).trigger('change');
 	$(el).ColorPickerHide();
       },
       onChange: function(hsb, hex, rgb) {
