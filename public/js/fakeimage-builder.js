@@ -21,7 +21,7 @@ $(function(){
 	;
 
       $preview.attr('src', fakeimage_src);
-      $code.text('<img src="http://'+host+fakeimage_src+' width="'+width+'" height="'+height+'" alt="">');
+      $code.text('<img src="http://'+host+fakeimage_src+'" width="'+width+'" height="'+height+'" alt="">');
     })
     .trigger('ready')
   ;
