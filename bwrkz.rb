@@ -4,6 +4,8 @@ require 'sinatra/reloader' if development?
 require 'haml'
 require 'RMagick'
 require 'rvg/rvg'
+require 'json'
+
 
 FORMATS = {
   "png" => "png",
@@ -19,6 +21,31 @@ get '/' do
   haml :index
 end
 
+## Delayed load JS
+
+get '/dj/?' do
+  haml :jsd
+end
+
+get '/dj/:time' do
+  begin
+
+	  sleep(params['time'].to_i / 1000)
+
+	  content_type :json
+
+	  out = ''
+
+	  out += params['callback'] + '(' if params.has_key? 'callback'
+
+	  out += {:delay => params['time'].to_i, :data => {:this => 'is', :some => 'data'}}.to_json
+
+	  out += ');' if params.has_key? 'callback'
+
+	  out
+
+  end
+end
 
 ## Fakeimage
 
